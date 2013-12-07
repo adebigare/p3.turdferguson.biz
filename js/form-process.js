@@ -12,17 +12,17 @@ $(document).ready(function() {
 			 $('[name="rate"]')];
 
 		// check to see if the variable is not zero length
-		$isValidInput = true;
+		var isValidInput = true;
 
 		$fields.forEach(function(field) {
 
-			$floatValue = parseFloat(field.val());
+			var floatValue = parseFloat(field.val());
 
-			if (isNaN($floatValue) ) {
+			if (isNaN(floatValue) ) {
 
 			// for each var that is NaN, highlight the field
 				field.css('background-color','red');
-				$isValidInput = false;
+				isValidInput = false;
 
 			} else {
 				field.css('background-color', 'white');
@@ -31,24 +31,24 @@ $(document).ready(function() {
 		});
 
 		// If field is zero or NaN
-		if ($isValidInput == false) {
+		if (isValidInput == false) {
 				$('.error').append('Please enter valid numbers and fill in all fields').css('color','red');
 		} else {
 
 		// If all is well, run the computation
-			$price = parseFloat($fields[0].val());
-			$downPayment = parseFloat($fields[1].val());
-			$yearsOfLoan = parseFloat($fields[2].val());
-			$rate = parseFloat($fields[3].val());
+			var price = parseFloat($fields[0].val());
+			var downPayment = parseFloat($fields[1].val());
+			var yearsOfLoan = parseFloat($fields[2].val());
+			var rate = parseFloat($fields[3].val());
 
-			$principal = $price - $downPayment;
-			$interest = $principal * $rate;
-			$totalPayment = $principal + $interest;
-			$monthsOfLoan = $yearsOfLoan * 12;
+			var principal = price - downPayment;
+			var interest = principal * rate;
+			var totalPayment = principal + interest;
+			var monthsOfLoan = yearsOfLoan * 12;
 
-			$monthlyPayment = $totalPayment / $monthsOfLoan;
+			var monthlyPayment = totalPayment / monthsOfLoan;
 
-			$('#payment').html($monthlyPayment);
+			$('#payment').html(monthlyPayment.toFixed(2));
 
 		}
 

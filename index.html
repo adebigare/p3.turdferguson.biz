@@ -9,20 +9,62 @@
          <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
          <script src="/js/form-process.js"></script>
         <style type="text/css">
+            body {
+                background-color: #333333;
+                font-family: "Helvetica", "Ariel",sans-serif;
+                font-size: 1.5em;
+                line-height: 1.75em;
+            }
+
+            #headline {
+                color: #E6C339;
+                margin: 2em auto;
+                padding: 0.75em;
+                text-align: center;
+
+            }
+
+            #mortgagePayment {
+                background-color: #E6C339;
+                color: #333333;
+                margin: 2em auto;
+                padding: 0.75em 1.5em;
+                width: 60%;
+                border-radius: 3px;
+                -moz-border-radius: 3px;
+                -webkit-border-radius: 3px;
+                vertical-align: middle;
+                max-width: 600px;
+            }
+
+            .explanation {
+                font-size: .5em;
+                font-style: italic;
+                color: light-gray;
+                line-height: .5em;
+            }
+
+            .form {
+                margin-top: .25em;
+            }
+
         </style>
 
     </head>
 
     <body>
 
+        <div id="headline"><h1>Calculate Your Mortgage Payment!</h1></div>
+
         <form id="mortgagePayment">
 
-            <div class="form">Price: <input type="text" name="price" placeholder="200000"></div>
-            <div class="form">Down Payment: <input type="text" name="downPayment" placeholder="20000"></div>
-            <div class="form">Length of Loan:<input type="text" name="yearsOfLoan" placeholder="25"></div>
-            <div class="form">Interest Rate:<input type="text" name="rate" placeholder=".03"></div>
+            <div class="form">Price: $<input type="text" name="price" placeholder="200000"></div>
+            <div class="form">Down Payment: $<input type="text" name="downPayment" placeholder="20000"></div>
+            <div class="form">Length of Loan: <input type="text" name="yearsOfLoan" placeholder="25"> years</div>
+            <div class="form">Interest Rate: <input type="text" name="rate" placeholder=".03">
+                <div class="explanation">In decimal form (ex. 3% = .03 or 0.03)</div>
+            </div>
             <input type='button' id="submit" name='submit' type="submit" value='Calculate My Payment'>
-            <input type='button' id="clear">
             <textarea id="payment" label="payment" rows="1" cols="30"></textarea>
 
         </form>
