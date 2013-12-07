@@ -1,5 +1,8 @@
 $(document).ready(function() {
 
+	function isNum(value) {
+		return /^\d*\.*\d+$/.test(value);
+	}
 
 	$("#submit").click(function() {
 
@@ -18,7 +21,7 @@ $(document).ready(function() {
 
 			var floatValue = parseFloat(field.val());
 
-			if (isNaN(floatValue) ) {
+			if (isNaN(floatValue)	|| !isNum(field.val())) {
 
 			// for each var that is NaN, highlight the field
 				field.css('background-color','red');
@@ -32,9 +35,12 @@ $(document).ready(function() {
 
 		// If field is zero or NaN
 		if (isValidInput == false) {
-				$('.error').append('Please enter valid numbers and fill in all fields').css('color','red');
+
+			$('.error').html('Please enter valid numbers and fill in all fields').css('color','red');
+
 		} else {
 
+			$('.error').empty();
 		// If all is well, run the computation
 			var price = parseFloat($fields[0].val());
 			var downPayment = parseFloat($fields[1].val());
